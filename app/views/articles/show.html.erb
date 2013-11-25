@@ -1,0 +1,11 @@
+<div class="show_article">
+  <h2><%= @article.name %></h2>
+  <div>
+    <%= @article.a_content %>
+  </div>
+  <div class="links">
+    <%= link_to 'Back to articles', articles_path %><span> | </span>
+    <%= link_to 'Edit', edit_article_path(@article) %><span> | </span>
+    <%= link_to 'Delete', @article, method: :delete, data: {confirm: 'Are you sure?'} %>
+  </div>
+</div>

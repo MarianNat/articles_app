@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def index
+    puts '---------------------------------------------com_index----------------------------'
   end
 
   def new
@@ -9,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def show
+    puts '---------------------------------------------com_show---------------------------------'
   end
 
   def edit
