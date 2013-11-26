@@ -1,0 +1,37 @@
+body{
+  font: 18px verdana;
+}
+.th,.article,.comment{
+  p{
+    width: 23%;
+    float: left;
+    text-align: center;
+    background: #E5E5E5;
+    margin: 0;
+    margin: 3px 1% 0 0;
+  }
+  p.name{
+    width: 50%;
+  }
+  p.comm{
+    width: 50%;
+  }
+}
+.show_article{
+  background: #E5E5E5;
+  padding-left: 1%; 
+  div{
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+.links{
+  text-align: right;
+}
+#article_a_content{
+  width: 450px;
+  height: 150px;
+}
+.comments .links{
+  padding-right: 2%;
+}
