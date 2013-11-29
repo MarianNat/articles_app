@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :find_article, only: [:show, :edit, :update, :destroy, :view]
+  before_action :find_articles, only: [:index, :read]
 
   def index
-    @articles = Article.all
+  end
+
+  def read
   end
 
   def new
@@ -37,6 +40,9 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def view
+  end
+
   private
 
   def article_params
@@ -45,5 +51,9 @@ class ArticlesController < ApplicationController
 
   def find_article
     @article = Article.find params[:id]
+  end
+
+  def find_articles
+    @articles = Article.all
   end
 end

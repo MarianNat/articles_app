@@ -1,6 +1,12 @@
 ArticlesApp::Application.routes.draw do
+root 'articles#read'
 resources :articles do
-  resources :comments
+  get 'view', on: :member
+  get 'read', on: :collection
+  resources :comments do
+    get 'view', on: :member
+    get 'read', on: :collection
+  end
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

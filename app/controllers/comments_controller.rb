@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :find_article, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :find_article
 
   def index
+    @comments = @article.comments
+  end
+
+  def read
     @comments = @article.comments
   end
 
@@ -16,6 +20,10 @@ class CommentsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def view
+    @comment = @article.comments.find params[:id]
   end
 
   def edit

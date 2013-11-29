@@ -1,0 +1,10 @@
+<div class="show_article">
+  <h2><%= @article.name %></h2>
+  <div>
+    <%= @article.a_content %>
+  </div>
+  <div class="links">
+    <%= link_to 'Comments', read_article_comments_path(@article) %><span> | </span>
+    <%= link_to 'Back to articles', read_articles_path %>
+  </div>
+</div>
