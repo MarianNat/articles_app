@@ -1,0 +1,11 @@
+h1 Comments
+.comments
+  .th
+    p.name Comment
+  - @comments.each do |comment|
+    .comment
+      p.comm= comment.comment
+    .links
+      = link_to 'View', view_article_comment_path(@article, comment)
+      span  | 
+  = link_to 'Back to article', view_article_path(@article)

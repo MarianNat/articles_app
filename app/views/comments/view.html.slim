@@ -1,0 +1,5 @@
+.show_comment
+  div
+    = @comment.comment
+  .links
+    = link_to 'Back', read_article_comments_path(@article)

@@ -1,0 +1,10 @@
+.show_article
+  h2= @article.name
+  div= @article.a_content
+  .links
+    = link_to 'Comments', read_article_comments_path(@article)
+    span 
+      | ( #{comments_count} )
+    span  | 
+    = link_to 'Back to articles', read_articles_path
+

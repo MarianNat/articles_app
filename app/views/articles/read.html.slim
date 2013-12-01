@@ -1,0 +1,10 @@
+= link_to 'Advanced mode', articles_path
+h2= time_now
+h1 
+  | Articles ( #{articles_count} )
+.articles
+  .th
+    p.name Name
+  - @articles.each do |article|
+    .article
+      p.name= link_to article.name, view_article_path(article)

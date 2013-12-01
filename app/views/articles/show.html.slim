@@ -1,0 +1,16 @@
+.show_article
+  h2= @article.name
+  div
+    = @article.a_content
+  .links
+    = link_to 'Comments', article_comments_path(@article)
+    span
+      | ( #{comments_count} )
+    span  | 
+    = link_to 'New comment', new_article_comment_path(@article)
+    span  | 
+    = link_to 'Back to articles', articles_path
+    span  | 
+    = link_to 'Edit', edit_article_path(@article)
+    span  | 
+    = link_to 'Delete', @article, method: :delete, data: {confirm: 'Are you sure?'}

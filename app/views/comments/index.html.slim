@@ -1,0 +1,18 @@
+h1 Comments
+.comments
+  .th
+    p.name Comment
+    p Created
+    p Updated
+  - @comments.each do |comment|
+    .comment
+      p.comm= comment.comment
+      p= comment.created_at
+      p= comment.updated_at
+    .links
+      = link_to 'View', view_article_comment_path(@article, comment)
+      span  | 
+      = link_to 'Edit', edit_article_comment_path(@article, comment)
+      span  | 
+      = link_to 'Delete', [@article, comment], method: :delete, data: {confirm: 'Are you sure?'}
+  = link_to 'Back to article', @article
