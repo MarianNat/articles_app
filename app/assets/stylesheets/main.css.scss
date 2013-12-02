@@ -1,3 +1,10 @@
+$color: #E5E5E5;
+@mixin gradient($position: top) {
+  background: -moz-linear-gradient($position, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+  background: -webkit-linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+  background: -o-linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+  background: linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+}
 body{
   font: 18px verdana;
 }
@@ -6,19 +13,26 @@ body{
     width: 23%;
     float: left;
     text-align: center;
-    background: #E5E5E5;
+    background: $color;
     margin: 0;
     margin: 3px 1% 0 0;
+    @include gradient(top left);
   }
   p.name{
     width: 50%;
   }
+  p.name.read{
+    width: 100%;
+  }
   p.comm{
     width: 50%;
   }
+  p.comm.read{
+    width: 100%;
+  }
 }
 .show_article{
-  background: #E5E5E5;
+  background: $color;
   padding-left: 1%; 
   div{
     width: 90%;
@@ -27,6 +41,7 @@ body{
 }
 .links{
   text-align: right;
+  clear: both;
 }
 #article_a_content{
   width: 450px;

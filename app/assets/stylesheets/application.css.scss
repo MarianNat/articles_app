@@ -9,5 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
+@import "normalize.css.scss";
+@import "../../../lib/assets/stylesheets/my_lib.css.scss";
+@import "main.css.scss"
