@@ -1,5 +1,6 @@
 $color1: #F8F8F8;
 $color2: #E7E7E7;
+$font: "Helvetica Neue",Helvetica,Arial,sans-serif;
 @mixin gradient($position: top-left) {
   background: -moz-linear-gradient($position, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
   background: -webkit-linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
@@ -22,6 +23,9 @@ $color2: #E7E7E7;
     margin: 0;
     padding: 0;
   }
+  .btn.btn-primary{
+    margin-top: 5px;
+  }
   .content{
     padding-left: 20px;
   }
@@ -34,6 +38,7 @@ $color2: #E7E7E7;
 .articles {
   float: left;
   width: 100%;
+  font-family: $font;
   .th{
     p{
       text-align: center;
@@ -60,8 +65,15 @@ $color2: #E7E7E7;
     background: $color2;
   }
 }
+.show_article > h2{
+  text-align: center;
+}
 footer{
   background: $color2;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   p{
     margin: 0;
     padding: 10px 0 10px 10px;
