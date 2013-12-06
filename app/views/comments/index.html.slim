@@ -1,16 +1,21 @@
-h1 Comments
-.comments
-  .th
-    p.name Comment
-    p Created
-    p Updated
-  - @comments.each do |comment|
-    .comment
-      p.comm= comment.comment
-      p= comment.created_at
-      p= comment.updated_at
-    .links
-      = link_to 'Edit', edit_article_comment_path(@article, comment)
-      span  | 
-      = link_to 'Delete', [@article, comment], method: :delete, data: {confirm: 'Are you sure?'}
-  = link_to 'Back to article', @article
+.action_wrap
+  .articles
+    .th
+      p.name.col-md-8 Comment
+      p.col-md-2 Created
+      p.col-md-2 Updated
+    - count = 0
+    - @comments.each do |comment|
+      - count += 1
+      div class="article#{count%2}"
+        p.name.col-md-8= comment.comment
+        p.col-md-2= comment.created_at
+        p.col-md-2= comment.updated_at
+      .links
+        ul.nav.nav-pills
+          li
+            = link_to 'Edit', edit_article_comment_path(@article, comment)
+          li
+            = link_to 'Delete', [@article, comment], method: :delete, data: {confirm: 'Are you sure?'}
+          li
+            = link_to 'Back to article', @article

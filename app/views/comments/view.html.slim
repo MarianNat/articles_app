@@ -1,5 +1,7 @@
-.show_comment
-  div
-    = @comment.comment
-  .links
-    = link_to 'Back', read_article_comments_path(@article)
+.action_wrap
+  .show_article
+    div.content= @comment.comment
+    .links
+      ul.nav.nav-pills
+        li
+          = link_to 'Back', read_article_comments_path(@article)

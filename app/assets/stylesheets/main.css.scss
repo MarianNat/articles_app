@@ -1,52 +1,70 @@
-$color: #E5E5E5;
-@mixin gradient($position: top) {
+$color1: #F8F8F8;
+$color2: #E7E7E7;
+@mixin gradient($position: top-left) {
   background: -moz-linear-gradient($position, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
   background: -webkit-linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
   background: -o-linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
   background: linear-gradient($position, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
 }
-body{
-  font: 18px verdana;
-}
-.th,.article,.comment{
-  p{
-    width: 23%;
-    float: left;
-    text-align: center;
-    background: $color;
+.main-wrap{
+  min-height: 1000px;
+  .action_wrap{
+    margin-top: 70px;
+  }
+  .new_wrap, .edit_wrap{
+    width: 33%;
+    margin: auto;
+  }
+  .btn-success.mod{
+    float: right;
+  }
+  .btn.btn-link{
     margin: 0;
-    margin: 3px 1% 0 0;
-    @include gradient(top left);
+    padding: 0;
   }
-  p.name{
-    width: 50%;
+  .content{
+    padding-left: 20px;
   }
-  p.name.read{
+  .count{
+    padding: 9px 10px;
+    background: $color1;
+    float: left;
+  }
+}
+.articles {
+  float: left;
+  width: 100%;
+  .th{
+    p{
+      text-align: center;
+    }
+  }
+  .col-md-2{
+    text-align: center;
+  }
+  .th, .article1, .article0{
+    float: left;
     width: 100%;
+    background: $color1;
+    border-bottom: 1px solid #e7e7e7;
+    p{
+      margin-top: 10px;
+    }
   }
-  p.comm{
-    width: 50%;
+  .article0, .article1{
+    &:hover{
+      background: #B5C3D6;
+    }
   }
-  p.comm.read{
-    width: 100%;
+  .article0{
+    background: $color2;
   }
 }
-.show_article{
-  background: $color;
-  padding-left: 1%; 
-  div{
-    width: 90%;
-    margin: 10px auto;
+footer{
+  background: $color2;
+  p{
+    margin: 0;
+    padding: 10px 0 10px 10px;
   }
-}
-.links{
-  text-align: right;
-  clear: both;
-}
-#article_a_content{
-  width: 450px;
-  height: 150px;
-}
-.comments .links{
-  padding-right: 2%;
+  @include gradient(top);
 }

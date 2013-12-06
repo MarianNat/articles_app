@@ -3,9 +3,11 @@ class ArticlesController < ApplicationController
   before_action :find_articles, only: [:index, :read]
 
   def index
+    session[:mode] = true
   end
 
   def read
+    session[:mode] = false
   end
 
   def new

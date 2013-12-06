@@ -1,0 +1,18 @@
+nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+  div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
+    ul class="nav navbar-nav"
+      li class="#{link_active?('index', 'read')}"
+        = link_to 'Articles', current_link
+      li class="#{link_active?('new')}"
+        = link_to 'New article', new_article_path if adv_mode?
+    ul class="nav navbar-nav navbar-right"
+      li.dropdown
+        a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+          | Settings 
+          b.caret
+        ul.dropdown-menu
+          li
+            = link_to 'Read mode', read_articles_path
+          li.divider
+          li
+            = link_to 'Advanced mode', articles_path

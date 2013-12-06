@@ -2,10 +2,9 @@
   .field
     = f.label :name 
     br
-    = f.text_field :name
+    = f.text_field :name, class: 'form-control'
   .field
     = f.label :a_content, 'Article'
     br
-    = f.text_area :a_content
-  .action
-    = f.submit 'Send'
+    = f.text_area :a_content, class: 'form-control'
+    = f.submit 'Send', class: 'btn btn-primary'

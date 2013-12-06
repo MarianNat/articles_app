@@ -1,10 +1,10 @@
-= link_to 'Advanced mode', articles_path
-h2= time_now
-h1 
-  | Articles ( #{articles_count} )
-.articles
-  .th
-    p.name Name
-  - @articles.each do |article|
-    .article
-      p.name= link_to article.name, view_article_path(article)
+.action_wrap
+  .articles
+    span.count Articles: #{articles_count}
+    .th
+      p.name.col-md-12 Name 
+    - count = 0
+    - @articles.each do |article|
+      - count += 1
+      div class="article#{count%2}"
+        p.name.col-md-12 = link_to article.name, view_article_path(article)

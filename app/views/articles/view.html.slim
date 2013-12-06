@@ -1,10 +1,13 @@
-.show_article
-  h2= @article.name
-  div= @article.a_content
-  .links
-    = link_to 'Comments', read_article_comments_path(@article)
-    span 
-      | ( #{comments_count} )
-    span  | 
-    = link_to 'Back to articles', read_articles_path
+.action_wrap
+  .show_article
+    h2= @article.name
+    div.content= @article.a_content
+    .links
+      ul.nav.nav-pills
+        li
+          a href="#{read_article_comments_path(@article)}" 
+            | Comments
+            span.badge #{comments_count}
+        li
+          = link_to 'Back to articles', read_articles_path
 

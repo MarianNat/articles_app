@@ -1,11 +1,13 @@
-h1 Comments
-.comments
-  .th
-    p.name.read Comment
-  - @comments.each do |comment|
-    .comment
-      p.comm.read= comment.comment
+.action_wrap
+  .articles
+    .th
+      p.name.col-md-8 Comment
+    - count = 0
+    - @comments.each do |comment|
+      - count += 1
+      div class="article#{count%2}"
+        p.name.col-md-8= comment.comment
     .links
-      = link_to 'View', view_article_comment_path(@article, comment)
-      span  | 
-      = link_to 'Back to article', view_article_path(@article)
+      ul.nav.nav-pills
+        li
+          = link_to 'Back to article', view_article_path(@article)

@@ -1,3 +1,5 @@
-h1 Comments#edit
-= render 'form'
-= link_to 'Back', article_comments_path(@article, @comment)
+.action_wrap
+  .new_wrap
+    h1 Comments#edit
+    = render 'form'
+    = link_to 'Back', article_comments_path(@article, @comment), class: "btn btn-success mod"
