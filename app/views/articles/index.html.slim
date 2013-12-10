@@ -1,14 +1,17 @@
 .action_wrap
   .articles
-    span.count Articles: #{articles_count}
+    span.count id="tt" Articles: #{articles_count}
     .th
-      p.name.col-md-8 Name 
+      p.name.col-md-7 Name 
       p.col-md-2 Created
       p.col-md-2 Updated
-    - count = 0
+      p.col-md-1
     - @articles.each do |article|
-      - count += 1
-      div class="article#{count%2}"
-        p.name.col-md-8 = link_to article.name, article, class: "btn btn-link"
+      div class="article"
+        p.name.col-md-7 = link_to article.name, article, class: "btn btn-link"
         p.col-md-2 = article.created_at.strftime "%m/%d/%Y at %H:%M"
         p.col-md-2 = article.updated_at.strftime "%m/%d/%Y at %H:%M"
+        p.col-md-1
+          /a.btn.btn-default href="#{article}" id="del_article"
+          = link_to article, method: :delete, remote: true, class: "btn btn-default del_article"
+            span.glyphicon.glyphicon-remove

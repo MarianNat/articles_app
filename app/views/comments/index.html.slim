@@ -7,10 +7,10 @@
     - count = 0
     - @comments.each do |comment|
       - count += 1
-      div class="article#{count%2}"
+      div class="article"
         p.name.col-md-8= comment.comment
-        p.col-md-2= comment.created_at
-        p.col-md-2= comment.updated_at
+        p.col-md-2= comment.created_at.strftime "%m/%d/%Y at %H:%M"
+        p.col-md-2= comment.updated_at.strftime "%m/%d/%Y at %H:%M"
       .links
         ul.nav.nav-pills
           li

@@ -2,10 +2,8 @@
   .articles
     .th
       p.name.col-md-8 Comment
-    - count = 0
     - @comments.each do |comment|
-      - count += 1
-      div class="article#{count%2}"
+      div class="article"
         p.name.col-md-8= comment.comment
     .links
       ul.nav.nav-pills

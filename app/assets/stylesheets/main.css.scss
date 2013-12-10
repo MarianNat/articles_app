@@ -47,7 +47,7 @@ $font: "Helvetica Neue",Helvetica,Arial,sans-serif;
   .col-md-2{
     text-align: center;
   }
-  .th, .article1, .article0{
+  .th{
     float: left;
     width: 100%;
     background: $color1;
@@ -56,13 +56,24 @@ $font: "Helvetica Neue",Helvetica,Arial,sans-serif;
       margin-top: 10px;
     }
   }
-  .article0, .article1{
+  .article{
+    float: left;
+    width: 100%;;
+    border-bottom: 1px solid $color2;
+    p{
+      margin-top: 10px;
+    }
     &:hover{
-      background: #B5C3D6;
+      background: $color1;
+      .del_article{
+        opacity: 0.8;
+      }
     }
   }
-  .article0{
-    background: $color2;
+  .del_article{
+    background: transparent;
+    border: none;
+    opacity: 0;
   }
 }
 .show_article > h2{

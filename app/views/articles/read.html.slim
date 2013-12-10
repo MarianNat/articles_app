@@ -3,8 +3,6 @@
     span.count Articles: #{articles_count}
     .th
       p.name.col-md-12 Name 
-    - count = 0
     - @articles.each do |article|
-      - count += 1
-      div class="article#{count%2}"
+      div class="article"
         p.name.col-md-12 = link_to article.name, view_article_path(article)

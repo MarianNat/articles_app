@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy, :view]
-  before_action :find_articles, only: [:index, :read]
+  before_action :find_articles, only: [:index, :read, :destroy]
 
   def index
     session[:mode] = true
@@ -33,13 +33,19 @@ class ArticlesController < ApplicationController
     if @article.update article_params
       redirect_to @article
     else
-      render action: edit
+      render action: 'edit'
     end
   end
 
-  def destroy
+  def destroy    
     @article.destroy
-    redirect_to articles_path
+    respond_to do |format|
+      if request.headers['X-Requested-With'] == 'XMLHttpRequest'
+        format.json { render json: 'ok' }
+      else
+        format.html { redirect_to @articles }
+      end
+    end
   end
 
   def view
