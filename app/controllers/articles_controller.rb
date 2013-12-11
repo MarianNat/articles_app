@@ -1,9 +1,13 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy, :view]
-  before_action :find_articles, only: [:index, :read, :destroy]
+  before_action :find_articles, only: [:index, :read]
 
   def index
     session[:mode] = true
+    articles_titles = Article.titles
+    puts '-----------------'
+    puts articles_titles
+    puts '-----------------'
   end
 
   def read
@@ -24,6 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.add_dividers params[:id]
   end
 
   def edit
@@ -43,7 +48,7 @@ class ArticlesController < ApplicationController
       if request.headers['X-Requested-With'] == 'XMLHttpRequest'
         format.json { render json: 'ok' }
       else
-        format.html { redirect_to @articles }
+        format.html { redirect_to articles_path }
       end
     end
   end

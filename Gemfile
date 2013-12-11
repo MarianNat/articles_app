@@ -31,6 +31,14 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
