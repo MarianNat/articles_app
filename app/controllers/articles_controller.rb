@@ -5,9 +5,6 @@ class ArticlesController < ApplicationController
   def index
     session[:mode] = true
     articles_titles = Article.titles
-    puts '-----------------'
-    puts articles_titles
-    puts '-----------------'
   end
 
   def read
