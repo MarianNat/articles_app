@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
 
     def add_dividers(id)
       article = find id
-      article.name = ' -- ' + article.name + ' -- '
+      article.name = '--' + article.name + '--'
       article
     end
 

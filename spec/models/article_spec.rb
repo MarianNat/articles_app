@@ -43,7 +43,7 @@ describe Article do
   describe "add_dividers" do
     before { @article.save }
     it "should include -- " do
-      Article.add_dividers(@article.id).name.should include("--")
+      Article.add_dividers(@article.id).name.should match /^-{2}[a-z A-z 1-9]+-{2}$/
     end
   end
 
