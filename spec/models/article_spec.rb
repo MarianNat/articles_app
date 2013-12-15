@@ -2,49 +2,45 @@ require 'spec_helper'
 
 describe Article do
 
-  before { @article = Article.new(name: "Example article", a_content: "Example article text") }
+  let(:article) { FactoryGirl.build(:article) }
 
-  subject { @article }
+    describe "class methods" do
+      before(:each) { article.save }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:a_content) }
+      describe "#titles" do
+        it "should return array" do
+          expect(Article.titles).to be_instance_of Array
+        end
+      end
 
-  it { should be_valid }
-
-  describe "when name is not present" do
-    before { @article.name = " " }
-    it { should_not be_valid }
-  end
-
-  describe "when content is not present" do
-    before { @article.a_content = " " }
-    it { should_not be_valid }
-  end
-
-  describe "when name is too long" do
-    before {@article.name = "a" * 51}
-    it { should_not be_valid }
-  end
-
-  describe "when name already exist" do
-    before do
-      article_copy = @article.dup
-      article_copy.save
+      describe "#add_dividers" do
+        it "should include -- " do
+          expect(Article.add_dividers(article.id).name).to match /^-{2}[a-z A-z 1-9]+-{2}$/
+        end
+      end
     end
-    it { should_not be_valid }
-  end
 
-  describe "titles" do
-    it "should return array" do
-      Article.titles.should be_instance_of Array
+    describe "validation" do
+
+      it "when name is not present" do
+        article.name = " "
+        expect(article).not_to be_valid
+      end
+
+      it "when content is not present" do
+        article.a_content = " "
+        expect(article).not_to be_valid 
+      end
+
+      it "when name is too long" do
+        article.name = "a" * 51
+        expect(article).not_to be_valid
+      end
+
+      it "when name already exist" do
+        article_copy = article.dup
+        article_copy.save
+        expect(article).not_to be_valid
+      end
     end
-  end
-
-  describe "add_dividers" do
-    before { @article.save }
-    it "should include -- " do
-      Article.add_dividers(@article.id).name.should match /^-{2}[a-z A-z 1-9]+-{2}$/
-    end
-  end
-
 end
