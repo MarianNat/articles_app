@@ -42,11 +42,8 @@ class ArticlesController < ApplicationController
   def destroy    
     @article.destroy
     respond_to do |format|
-      if request.headers['X-Requested-With'] == 'XMLHttpRequest'
-        format.json { render json: 'ok' }
-      else
-        format.html { redirect_to articles_path }
-      end
+      format.html {redirect_to articles_path }
+      format.json { render json: { status: 'ok' } }
     end
   end
 

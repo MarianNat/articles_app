@@ -12,6 +12,5 @@
         p.col-md-2 = article.created_at.strftime "%m/%d/%Y at %H:%M"
         p.col-md-2 = article.updated_at.strftime "%m/%d/%Y at %H:%M"
         p.col-md-1
-          /a.btn.btn-default href="#{article}" id="del_article"
-          = link_to article, method: :delete, remote: true, class: "btn btn-default del_article"
+          = link_to article, method: :delete, remote: true, "data-type" => "json", class: "btn btn-default del_article"
             span.glyphicon.glyphicon-remove
