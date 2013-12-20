@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require jarallax
 //= require my_lib
 //= require main

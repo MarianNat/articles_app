@@ -80,6 +80,8 @@ $font: "Helvetica Neue",Helvetica,Arial,sans-serif;
   text-align: center;
 }
 footer{
+  opacity: 0;
+  //display: none; 
   background: $color2;
   position: fixed;
   left: 0;
